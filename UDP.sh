@@ -55,12 +55,6 @@ else
   echo "Port 80 is not in use."
 fi
 
-# Check if the domain has DNS records (A record)
-if ! dig +short $domainName | grep -qE '^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$'; then
-  echo "Domain $domainName does not have valid DNS records. Exiting."
-  exit 1
-fi
-
 # Proceed with Certbot if the domain exists
 echo "Proceeding with Certbot for domain: $domainName"
 
