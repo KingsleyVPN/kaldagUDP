@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-export DEBIAN_FRONTEND=noninteractive
 
 read -p "Enter domain: " domainName
 read -p "Enter obfs: " obfs
@@ -55,13 +54,6 @@ else
   echo "Port 80 is not in use."
 fi
 
-# Proceed with Certbot if the domain exists
-echo "Proceeding with Certbot for domain: $domainName"
-
-sudo certbot certonly --standalone --pre-hook "echo ${domainName}" -d ${domainName} \
-  --email jlhsnzfn@bugfoo.com --agree-tos --non-interactive --no-eff-email
-
-
 cat << UDP > /etc/udp/config.json
 {
     "server": "$domainName",
@@ -87,7 +79,7 @@ UDP
 
 cat << EOF > /etc/systemd/system/udp.service
 [Unit]
-Description=JuanScript Simplified UDP
+Description=KaldagScript Simplified UDP
 After=network.target
 
 [Service]
