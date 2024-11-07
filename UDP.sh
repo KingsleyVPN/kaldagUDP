@@ -10,7 +10,7 @@ echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo deb
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
 apt install iptables-persistent certbot dnsutils lsof -y
 
-DOWNLOAD_URL="https://github.com/apernet/hysteria/releases/download/app%2Fv2.5.2/hysteria-linux-amd64"
+DOWNLOAD_URL="https://github.com/apernet/hysteria/releases/download/v1.3.5/hysteria-linux-amd64"
 DOWNLOAD_PATH="/etc/udp/hysteria135"
 
 # Create the directory if it doesn't exist
